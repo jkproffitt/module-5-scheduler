@@ -1,3 +1,10 @@
+var calenderEl = document.getElementById('calendar');
+var hourEl = document.getElementsByClassName('row time-block')
+
+for(var i=0;  i < hourEl.length; i++ ){
+console.log(hourEl[i].id.slice(5))
+hourEl[i].id.slice(5);
+}
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -15,7 +22,11 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   //
+  var currentHour = dayjs().format('H');
+  console.log(currentHour);
+
   function canBeScheduled() {
+
   if (time == inPast) {
     hourBlockEl.textContent="Sorry, your time has passed";
     hourBlockEl.className='past';
@@ -31,12 +42,10 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-  var weekday = dayjs('2027-01-01', 'm-d-yyyy').format('dd');
-  $('#weekday').text(weekday);
-// Current Time 
-  var time = dayjs().format('h:mm:ss a');
+  // Current Time 
+  var time = dayjs().format('h:mm:ss A');
   $('#currentTime').text('The current time is: ' + time);
-// Today's Date
+  // Today's Date
   var date = dayjs().format('MMM DD, YYYY');
   $('#currentDateAndTime').text('Today is: ' + date + ' at ' + time);
 });
