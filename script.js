@@ -7,7 +7,6 @@ var currentHour = 11;
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(document).ready(function () {
-	console.log('go');
 	var hourEl = document.getElementsByClassName('row time-block');
 	for (var i = 0; i < hourEl.length; i++) {
 		var divHr = hourEl[i].id.slice(5);
@@ -22,12 +21,6 @@ $(document).ready(function () {
 	// useful when saving the description in local storage?
 	//
 	// TODO: Add code to apply the past, present, or future class to each time
-	// block by comparing the id to the current hour.
-	// HINTS: How can the id attribute of each time-block be used to conditionally add or remove the
-	// past, present, and future classes? How can Day.js be used to get the
-	// current hour in 24-hour time?
-	//
-
 	function canBeScheduled(currentHour, divHr) {
 		var hourBlockEl = document.getElementById('hour-' + divHr);
 
@@ -46,9 +39,12 @@ $(document).ready(function () {
 	// attribute of each time-block be used to do this?
 
 	function saveAttempt(event) {
-		var btn = event.target;
+		var btn = event.target.parentElement;
+		var timeTimeBlockTxt = document.getElementById(
+			event.target.parentElement.id + 'txt'
+		);
+		console.log(btn, timeTimeBlockTxt.value);
 		// localStorage.setItem('busy', timeBlock);
-		console.log(btn);
 	}
 	// TODO: Add code to display the current date in the header of the page.
 	// Current Time
