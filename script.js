@@ -45,7 +45,6 @@ $(document).ready(function () {
 
 	function fillCalendar() {
 		for (var i = 0; i < busyObj.length; i++) {
-			var text = JSON.stringify(busyObj[i]);
 			var key = Object.keys(busyObj[i])[0];
 			var value = Object.values(busyObj[i])[0];
 			document.getElementById(key).innerHTML = value;
